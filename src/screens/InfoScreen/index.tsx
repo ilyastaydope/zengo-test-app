@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import Configs from "../../configs";
 import {infoScreenStyles } from "./styles";
+import {useNavigation} from "@react-navigation/native";
 
 const InfoScreen = ({route}: any) => {
     const params = route?.params || {};
     const [visible, setVisible] = useState(false)
-
+    const navigation = useNavigation()
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title:  `About ${params.name}`
+        });
+    }, [navigation]);
     return (
     <ScrollView>
         <View style={infoScreenStyles.container}>

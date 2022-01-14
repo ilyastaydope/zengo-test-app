@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {View, FlatList, ActivityIndicator, Alert} from 'react-native';
 import Ticker from "../../components/ticker";
 import Heading from "../../components/heading";
@@ -7,10 +7,16 @@ import {mainScreenStyles} from "./styles";
 import {parseDigits} from "../../utils/parceDigits";
 import {IBlockChainData} from "../../types/IData";
 
-const MainScreen: React.FC = ({ route }: any) => {
-  const [data, setData] = useState<IBlockChainData[]>([]);
-  const [order, setOrder] = useState<'asc' | 'desc'>('asc')
+const MainScreen: React.FC = ({ route, navigation }: any) => {
 
+  const [data, setData] = useState<IBlockChainData[]>([]);
+  const [order, setOrder] = useState<'asc' | 'desc'>('asc');
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: "Coins List"
+    });
+  }, [navigation]);
   const initialize = async () => {
     try {
       const {symbolsList, converters} = route.params || {

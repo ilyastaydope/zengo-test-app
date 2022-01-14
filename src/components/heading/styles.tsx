@@ -4,6 +4,6 @@ export const headingStyles = StyleSheet.create({
     wrapper: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 20
+        marginVertical: 20
     }
 })
