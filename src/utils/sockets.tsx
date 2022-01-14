@@ -22,6 +22,8 @@ export const initSocketConnection = () => {
         '2~Coinbase~MATIC~USD',
         '2~Coinbase~DASH~USD',
         '2~Coinbase~LTC~USD',
+        '2~Coinbase~XRP~USD',
+        '2~Coinbase~BNB~USD',
       ],
     };
     socket.send(JSON.stringify(subRequest));

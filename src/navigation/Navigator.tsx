@@ -17,7 +17,7 @@ const Navigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           cardStyle: {backgroundColor: '#ffffff'},
           headerMode: 'screen',
         }}>

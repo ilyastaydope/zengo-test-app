@@ -9,19 +9,23 @@ export const infoScreenStyles = StyleSheet.create({
     wrapper: {
         justifyContent: 'center',
         alignSelf: 'center',
-        backgroundColor: '#d3d7db',
         borderRadius: 10,
         borderColor: '#0390fc',
         borderWidth: 1
     },
     text: {
-        color: '#0390fc',
+        color: '#000000',
         fontSize: 20,
         padding: 5
     },
     heading: {
         textAlign: 'center',
         fontSize: 20,
-        marginBottom: 5
+        marginVertical: 5,
+        fontWeight: 'bold'
+    },
+    description: {
+        textAlign: 'center',
+        fontSize: 12,
     }
 })

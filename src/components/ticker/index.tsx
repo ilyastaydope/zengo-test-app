@@ -5,8 +5,7 @@ import {stylesProps, tickerStyles} from "./styles";
 import {useNavigation} from "@react-navigation/native";
 import Configs from '../../configs';
 import {parseDigits} from "../../utils/parceDigits";
-import {IBlockChainData} from "../../types/IData";
-
+import {Pin} from "../../assets";
 const Ticker: React.FC<any> = (props) => {
     const {socket} = useContext(SocketProviderContext);
     const [data, setData] = useState(props);
@@ -42,12 +41,11 @@ const Ticker: React.FC<any> = (props) => {
     }, [socket]);
 
 
-
     return (
         <TouchableOpacity style={tickerStyles.container} onPress={goToTickerScreen}>
            <TouchableOpacity style={tickerStyles.buttonWrapper} onPress={props.moveToTop}>
                <Text>
-                   Pin Item
+                   Pin coin
                </Text>
            </TouchableOpacity>
             <View style={tickerStyles.wrapper}>

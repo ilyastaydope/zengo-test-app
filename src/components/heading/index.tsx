@@ -7,7 +7,8 @@ const Heading: React.FC<IHeading> = ({handleClick}) => {
 
     return (
         <View style={headingStyles.wrapper}>
-            <Text>Coin name / 24h Volume</Text>
+            <Text>Pin coin</Text>
+            <Text>Coin name</Text>
             <TouchableOpacity onPress={handleClick}>
                 <Text>Price (USD)</Text>
             </TouchableOpacity>

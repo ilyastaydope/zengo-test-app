@@ -1,13 +1,14 @@
-import React from 'react';
-import {Text, View, Image} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import Configs from "../../configs";
-import {infoScreenStyles} from "./styles";
+import {infoScreenStyles } from "./styles";
 
 const InfoScreen = ({route}: any) => {
     const params = route?.params || {};
+    const [visible, setVisible] = useState(false)
 
     return (
-    <View>
+    <ScrollView>
         <View style={infoScreenStyles.container}>
             <Image source={{uri: `${Configs.domain}${params.IMAGEURL}`}} style={infoScreenStyles.image}/>
         </View>
@@ -16,9 +17,11 @@ const InfoScreen = ({route}: any) => {
             <Text style={infoScreenStyles.text}>Quantity of block in blockchain: {params.BlockNumber}</Text>
             <Text style={infoScreenStyles.text}>Date of creation: {params.AssetLaunchDate}</Text>
         </View>
-        <Text style={infoScreenStyles.heading}>Short info about token: </Text>
-        <Text>{params.Description}</Text>
-    </View>
+        <TouchableOpacity onPress={() => setVisible(prevState => !prevState)}>
+        <Text style={infoScreenStyles.heading}>Give more info about token: </Text>
+        </TouchableOpacity>
+        {visible && <Text style={infoScreenStyles.description}>{params.Description}</Text>}
+    </ScrollView>
   );
 };
 
